@@ -9,7 +9,7 @@ I haven't started coding yet, but the application is going to be written in pyth
 
 ### What I learned 
 
-I watched videos and read blogposts about different maze solving algorithms and how the mazes they generate differ.
+I watched videos and read blogposts about different maze generating algorithms and how the mazes they generate differ.
 
 ### What I'm doing next
 
