@@ -9,9 +9,10 @@ class Navigation:
         self.navigation = tk.Frame(self.master, padding=2)
         self.navigation.grid(column=0, row=0, sticky="n")
 
-
-        title_tabel = tk.Label(self.navigation, text="Maze Generator", font=("Arial", 14))
-        size_label = tk.Label(self.navigation, text="Maze size (cells)", font=("Arial", 11))
+        title_tabel = tk.Label(
+            self.navigation, text="Maze Generator", font=("Arial", 14))
+        size_label = tk.Label(
+            self.navigation, text="Maze size (cells)", font=("Arial", 11))
         height_label = tk.Label(self.navigation, text="Height")
         width_label = tk.Label(self.navigation, text="Width")
         self.height_input = tk.Entry(self.navigation, width=7)
@@ -36,7 +37,6 @@ class Navigation:
         algo1.grid(row=6, column=0, pady=5)
         algo2.grid(row=7, column=0, pady=5)
         visualize_button.grid(row=8, column=0)
-
 
     def set_size(self):
         width = self.width_input.get()

@@ -1,5 +1,6 @@
 import tkinter
 
+
 class Maze:
     def __init__(self, master, logic):
         self.master = master

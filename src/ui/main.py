@@ -2,6 +2,7 @@ from tkinter import ttk as tk
 from ui.navigation import Navigation
 from ui.maze import Maze
 
+
 class MainLoop:
 
     def __init__(self, root, logic):
@@ -21,7 +22,6 @@ class MainLoop:
 
         self.maze = Maze(content, self.logic)
         self.navigation = Navigation(content, self.logic, self.maze)
-
 
     def run(self):
         self.root.mainloop()

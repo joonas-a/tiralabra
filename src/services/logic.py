@@ -6,7 +6,6 @@ class Logic:
         self.width = 20
         self.height = 20
 
-
     def get_width(self):
         return self.cell_size * self.width
 
@@ -18,5 +17,5 @@ class Logic:
         self.height = int(new_height)
         maze.update_size()
 
-        print("new width:",self.get_width())
-        print("new height:",self.get_height())
+        print("new width:", self.get_width())
+        print("new height:", self.get_height())
