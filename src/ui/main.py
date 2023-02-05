@@ -1,44 +1,27 @@
-import tkinter
 from tkinter import ttk as tk
-from navigation import Navigation
-#from ..services.logic import Logic
+from ui.navigation import Navigation
+from ui.maze import Maze
 
-class MainLoop(tkinter.Tk()):
+class MainLoop:
 
-    def __init__(self, root):
+    def __init__(self, root, logic):
         self.root = root
-        self.title = "Maze Generator"
-        self.cell_size = 20
+        self.logic = logic
+        self.root.title = "Maze Generator"
+        self.root.resizable(width=False, height=False)
         self.maze = None
         self.navigation = None
-        #self.logic = Logic
 
         self.initialize()
 
     def initialize(self):
-        root = self.root
-        root.title(self.title)
-        root.resizable(width=False, height=False)
-
-        # contains all other frames
-        content = tk.Frame(root)
+        # helper frame to contain all other frames
+        content = tk.Frame(self.root)
         content.grid(column=0, row=0)
 
-        self.navigation = Navigation(content)
-        #navigation = tk.Frame(content, padding=2)
-        canvas = tk.Frame(content, relief="solid", padding=2)
+        self.maze = Maze(content, self.logic)
+        self.navigation = Navigation(content, self.logic, self.maze)
 
-        #navigation.grid(column=0, row=0, sticky="n")
-        canvas.grid(column=1, row=0)
-
-        self.maze = tkinter.Canvas(canvas, bg="white", height=20*self.cell_size, width=20*self.cell_size)
-        self.maze.grid(row=0, column=0)
-
-    # logic needs to be separated from the ui
 
     def run(self):
         self.root.mainloop()
-
-
-app = MainLoop()
-app.run()

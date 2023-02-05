@@ -1,9 +1,11 @@
 from tkinter import ttk as tk
-from functools import partial
+
 
 class Navigation:
-    def __init__(self, master):
+    def __init__(self, master, logic, maze):
         self.master = master
+        self.logic = logic
+        self.maze = maze
         self.navigation = tk.Frame(self.master, padding=2)
         self.navigation.grid(column=0, row=0, sticky="n")
 
@@ -17,7 +19,7 @@ class Navigation:
         set_size = tk.Button(
             self.navigation,
             text="Set",
-            command=partial(self.change_maze_size)
+            command=self.set_size
         )
         algo1 = tk.Button(self.navigation, text="Algorithm 1")
         algo2 = tk.Button(self.navigation, text="Algorithm 2",)
@@ -35,12 +37,8 @@ class Navigation:
         algo2.grid(row=7, column=0, pady=5)
         visualize_button.grid(row=8, column=0)
 
-    def change_maze_size(self):
-        width = int(self.width_input.get())
-        height = int(self.height_input.get())
-        self.maze.config(
-            width=self.cell_size*width,
-            height=self.cell_size*height
-        )
-        print("new width:",self.cell_size*width)
-        print("new height:",self.cell_size*height)
+
+    def set_size(self):
+        width = self.width_input.get()
+        height = self.height_input.get()
+        self.logic.change_maze_size(width, height, self.maze)
