@@ -6,7 +6,9 @@ authors = ["Joonas Ahovalli <joonas.ahovalli@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8"
+invoke = "^2.0.0"
+pylint = "^2.16.1"
 
 
 [build-system]
