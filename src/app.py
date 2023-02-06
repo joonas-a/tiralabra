@@ -6,6 +6,8 @@ from services.logic import Logic
 class App:
     def __init__(self):
         self.root = tkinter.Tk()
+        self.root.title("Maze Generator")
+        self.root.resizable(width=False, height=False)
         self.logic = Logic(self.root)
         self.loop = MainLoop(self.root, self.logic)
 

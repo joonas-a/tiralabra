@@ -8,8 +8,6 @@ class MainLoop:
     def __init__(self, root, logic):
         self.root = root
         self.logic = logic
-        self.root.title = "Maze Generator"
-        self.root.resizable(width=False, height=False)
         self.maze = None
         self.navigation = None
 
