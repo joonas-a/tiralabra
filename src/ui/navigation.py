@@ -1,3 +1,4 @@
+from tkinter import IntVar
 from tkinter import ttk as tk
 
 
@@ -22,9 +23,15 @@ class Navigation:
             text="Set",
             command=self.set_size
         )
-        algo1 = tk.Button(self.navigation, text="Algorithm 1")
+        algo1 = tk.Button(
+            self.navigation,
+            text="Kruskal's",
+            command=self.run_kruskals
+        )
         algo2 = tk.Button(self.navigation, text="Algorithm 2",)
-        visualize_button = tk.Checkbutton(self.navigation, text="Visualize")
+        self.visualize_var = IntVar()
+        visualize_button = tk.Checkbutton(
+            self.navigation, text="Visualize", variable=self.visualize_var)
 
         title_tabel.grid(row=0, column=0, columnspan=2, pady=5, padx=4)
         size_label.grid(row=2, column=0, columnspan=2, sticky="W", padx=4)
@@ -42,3 +49,6 @@ class Navigation:
         width = self.width_input.get()
         height = self.height_input.get()
         self.logic.change_maze_size(width, height, self.maze)
+
+    def run_kruskals(self):
+        self.logic.kruskals(self.maze, self.visualize_var.get())
