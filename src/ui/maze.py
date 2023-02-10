@@ -13,7 +13,7 @@ class Maze:
 
         self.maze = tkinter.Canvas(
             self.canvas_frame,
-            bg='red',
+            bg='black',
             height=self.logic.get_height(),
             width=self.logic.get_width()
         )

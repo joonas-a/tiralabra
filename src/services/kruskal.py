@@ -1,9 +1,5 @@
 import random
 
-# set seed for shuffle
-#
-# random.Random(seed).shuffle(list)
-
 
 class Kruskals:
     def __init__(self, layout, maze, visualize):
@@ -19,25 +15,33 @@ class Kruskals:
     def populate_walls(self):
         for row_count, row in enumerate(self.grid):
             for col_count, cell in enumerate(row):
-                if cell == 1:
-                    if row_count % 2 == 1 and col_count % 2 == 1:
-                        continue
-                    self.walls.append((col_count, row_count))
+                if cell == 1 and not (row_count % 2 == 1 and col_count % 2 == 1):
+                    self.add_wall(col_count, row_count)
         random.shuffle(self.walls)
 
-    def run(self):
-        for wall in self.walls:
-            col, row = wall
+    def add_wall(self, col, row):
+        if col == 0 or col == (self.width - 1) or col % 2 == 0:
+            self.walls.append((col, row, "vertical"))
+        elif row == 0 or row == (self.height - 1) or row % 2 == 0:
+            self.walls.append((col, row, "horizontal"))
+        else:
+            # print("something went wrong adding walls to the list")
+            pass
 
-            if 0 < col < self.width-1 and self.grid[col-1][row] != 1 and self.grid[col+1][row] != 1:
+    def run(self):
+        while self.walls:
+            col, row, dir = self.walls.pop()
+
+            if dir == "horizontal":
                 col_a = col - 1
                 col_b = col + 1
                 row_a, row_b = row, row
-            elif 0 < row < self.height-1 and self.grid[col][row-1] != 1 and self.grid[col][row+1] != 1:
+            elif dir == "vertical":
                 row_a = row - 1
                 row_b = row + 1
                 col_a, col_b = col, col
             else:
+                # print("failed with", row, col)
                 continue
 
             set1 = self.sets.find((row_a, col_a))

@@ -4,7 +4,7 @@ from .kruskal import Kruskals
 class Logic:
     def __init__(self, root):
         self.root = root
-        self.cell_size = 15
+        self.cell_size = 10
         self.width = 41
         self.height = 41
         self.maze_layout = None
@@ -23,8 +23,8 @@ class Logic:
             [1 if i % 2 == 1 or j % 2 == 1 else 2 for j in range(self.width)] for i in range(self.height)]
 
     def change_maze_size(self, new_width, new_height, maze):
-        self.width = int(new_width)
-        self.height = int(new_height)
+        self.width = int(new_width) + int(new_width) - 1
+        self.height = int(new_height) + int(new_height) - 1
         self.generate_empty_maze()
         maze.update_size()
 
