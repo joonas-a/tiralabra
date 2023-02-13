@@ -3,6 +3,20 @@ from tkinter import ttk as tk
 
 
 class Navigation:
+    """Responsible for displaying most of the GUI in the application
+
+    Creates, draws and stores the state of all buttons in the app
+    Offers the user control over the dimensions of the maze, which algorithm to
+    use and whether to visualize the algorithms flow or run it instantly
+
+    Args:
+        master: frame which stores the navigation bar for easier customization
+        logic: the logic component of the application, required for altering maze
+            properties or running individual algorithms
+        maze: the maze component, needed to pass maze-drawing functions onwards
+            to help visualize the flow of the algorithms
+    """
+
     def __init__(self, master, logic, maze):
         self.master = master
         self.logic = logic

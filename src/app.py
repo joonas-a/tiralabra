@@ -8,7 +8,7 @@ class App:
         self.root = tkinter.Tk()
         self.root.title("Maze Generator")
         self.root.resizable(width=False, height=False)
-        self.logic = Logic(self.root)
+        self.logic = Logic()
         self.loop = MainLoop(self.root, self.logic)
 
     def run(self):

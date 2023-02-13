@@ -2,6 +2,18 @@ import tkinter
 
 
 class Maze:
+    """Responsible for representing maze on the right side of the application
+
+    Creates a new frame for the canvas displaying the maze. Provides functions
+    for drawing the maze for given layout, or individual cells one at a time.
+
+    Args:
+        master: frame which stores the newly created canvas frame, useful for
+            easier customization of the UI
+        logic: logic component of the application, stores the state
+            of the maze
+    """
+
     def __init__(self, master, logic):
         self.master = master
         self.logic = logic
@@ -21,6 +33,7 @@ class Maze:
         self.draw_maze(self.logic.maze_layout)
 
     def draw_maze(self, layout):
+        """Accepts a matrix, in which 0s are drawn as path"""
         for column_count, row in enumerate(layout):
             for row_count, cell in enumerate(row):
                 cell_color = "white" if cell == 0 else "black"

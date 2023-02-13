@@ -2,8 +2,13 @@ from .kruskal import Kruskals
 
 
 class Logic:
-    def __init__(self, root):
-        self.root = root
+    """The main logic component for storing the state of the application
+
+    Is initialized upon the start of the application. Takes no args, but the
+    properties can be later altered through helper methods and algorithms.
+    """
+
+    def __init__(self):
         self.cell_size = 10
         self.width = 41
         self.height = 41
@@ -18,7 +23,9 @@ class Logic:
         return self.cell_size * self.height
 
     def generate_empty_maze(self):
-        # 1 for wall, 2 for unvisited cell
+        # Generates the matrix for displaying the maze
+        # 0 for path, 1 for solid wall, 2 for unvisited cell
+        # 1 & 2 are by default drawn black in the maze
         self.maze_layout = [
             [1 if i % 2 == 1 or j % 2 == 1 else 2 for j in range(self.width)] for i in range(self.height)]
 
