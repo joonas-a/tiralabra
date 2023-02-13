@@ -12,3 +12,5 @@ Course repository for the Data Structures & Algorithms Lab at the University of 
 [Week 2](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week2.md)
 
 [Week 3](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week3.md)
+
+[Week 4](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week4.md)
