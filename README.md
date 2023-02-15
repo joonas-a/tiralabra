@@ -1,5 +1,15 @@
-# Maze generator (tiralabra)
+# Maze Generator
 Course repository for the Data Structures & Algorithms Lab at the University of Helsinki
+
+This is a [Python](https://www.python.org/) project that uses [Poetry](https://python-poetry.org/) for dependency management
+
+### To get started
+
+Run `poetry install` in the project's root directory to install dependencies
+
+Run `poetry run invoke start` to launch the application
+
+*alternatively run `src/app.py` with Python*
 
 ## Documentation
 
