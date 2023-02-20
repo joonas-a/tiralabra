@@ -1,4 +1,5 @@
 # Maze Generator
+
 Course repository for the Data Structures & Algorithms Lab at the University of Helsinki
 
 This is a [Python](https://www.python.org/) project that uses [Poetry](https://python-poetry.org/) for dependency management
@@ -9,7 +10,7 @@ Run `poetry install` in the project's root directory to install dependencies
 
 Run `poetry run invoke start` to launch the application
 
-*alternatively run `src/app.py` with Python*
+_alternatively run `src/app.py` with Python_
 
 ## Documentation
 
@@ -24,3 +25,5 @@ Run `poetry run invoke start` to launch the application
 [Week 3](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week3.md)
 
 [Week 4](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week4.md)
+
+[Week 5](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week5.md)
