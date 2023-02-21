@@ -1,6 +1,6 @@
 ## Week 5
 
-This week I didn't have much time to work with this project unfortunately, however the peer review for week 1 is done.
+This week I didn't have much time to work with this project unfortunately, however I managed to finish the peer review.
 
 ### Progress on the application
 
