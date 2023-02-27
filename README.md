@@ -27,3 +27,5 @@ _alternatively run `src/app.py` with Python_
 [Week 4](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week4.md)
 
 [Week 5](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week5.md)
+
+[Week 6](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week6.md)
