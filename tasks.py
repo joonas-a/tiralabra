@@ -14,3 +14,8 @@ def lint(ctx):
 @task
 def test(ctx):
     ctx.run("pytest src", pty=True)
+
+
+@task
+def coverage(ctx):
+    ctx.run("coverage run --branch -m pytest && coverage html", pty=True)
