@@ -16,6 +16,8 @@ _alternatively run `src/app.py` with Python_
 
 [Project Specification](https://github.com/joonas-a/tiralabra/blob/main/docs/project_specification.md)
 
+[Testing Document](https://github.com/joonas-a/tiralabra/blob/main/docs/testing_document.md)
+
 ## Weekly reports
 
 [Week 1](https://github.com/joonas-a/tiralabra/blob/main/docs/reports/week1.md)
