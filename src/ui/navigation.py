@@ -42,10 +42,18 @@ class Navigation:
             text="Kruskal's",
             command=self.run_kruskals
         )
-        algo2 = tk.Button(self.navigation, text="Algorithm 2",)
+        algo2 = tk.Button(
+            self.navigation,
+            text="Backtracker",
+            command=self.run_backtracker
+        )
         self.visualize_var = IntVar()
         visualize_button = tk.Checkbutton(
             self.navigation, text="Visualize", variable=self.visualize_var)
+
+        runtime_label = tk.Label(self.navigation, text="Runtime: ")
+        self.runtime = tk.Label(
+            self.navigation, text=f"{self.logic.runtime} s")
 
         title_tabel.grid(row=0, column=0, columnspan=2, pady=5, padx=4)
         size_label.grid(row=2, column=0, columnspan=2, sticky="W", padx=4)
@@ -58,6 +66,8 @@ class Navigation:
         algo1.grid(row=6, column=0, pady=5)
         algo2.grid(row=7, column=0, pady=5)
         visualize_button.grid(row=8, column=0)
+        runtime_label.grid(row=9, column=0)
+        self.runtime.grid(row=9, column=1)
 
     def set_size(self):
         width = self.width_input.get()
@@ -66,3 +76,8 @@ class Navigation:
 
     def run_kruskals(self):
         self.logic.kruskals(self.maze, self.visualize_var.get())
+        self.runtime.config(text=f"{self.logic.runtime:.5f} s")
+
+    def run_backtracker(self):
+        self.logic.backtracker(self.maze, self.visualize_var.get())
+        self.runtime.config(text=f"{self.logic.runtime:.5f} s")

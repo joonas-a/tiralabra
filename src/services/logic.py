@@ -1,4 +1,6 @@
+import time
 from .kruskal import Kruskals
+from . backtracker import Backtracker
 
 
 class Logic:
@@ -13,6 +15,7 @@ class Logic:
         self.width = 41
         self.height = 41
         self.maze_layout = None
+        self.runtime = 0
 
         self.generate_empty_maze()
 
@@ -36,8 +39,23 @@ class Logic:
         maze.update_size()
 
     def kruskals(self, maze, visualize=False):
+        self.runtime = 0
+        start = time.time()
         self.generate_empty_maze()
         maze.draw_maze(self.maze_layout)
         kruskals = Kruskals(self.maze_layout, maze, visualize)
         self.maze_layout = kruskals.run()
         maze.draw_maze(self.maze_layout)
+        end = time.time()
+        self.runtime = end - start
+
+    def backtracker(self, maze, visualize=False):
+        self.runtime = 0
+        start = time.time()
+        self.generate_empty_maze()
+        maze.draw_maze(self.maze_layout)
+        backtracker = Backtracker(self.maze_layout, maze, visualize)
+        self.maze_layout = backtracker.run()
+        maze.draw_maze(self.maze_layout)
+        end = time.time()
+        self.runtime = end - start
