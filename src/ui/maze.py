@@ -33,7 +33,10 @@ class Maze:
         self.draw_maze(self.logic.maze_layout)
 
     def draw_maze(self, layout):
-        """Accepts a matrix, in which 0s are drawn as path"""
+        """Accepts a matrix, in which 0s are drawn as path
+           Initially clears the canvas of all objects
+        """
+        self.maze.delete("all")
         for column_count, row in enumerate(layout):
             for row_count, cell in enumerate(row):
                 cell_color = "white" if cell == 0 else "black"
