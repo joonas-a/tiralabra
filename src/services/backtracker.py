@@ -25,6 +25,7 @@ class Backtracker:
         self.height = len(self.grid)
         self.width = len(self.grid[0])
         self.visited = set()
+        self.options = None
         self.stack = []
 
     def run(self):
