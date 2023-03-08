@@ -21,15 +21,15 @@ class Backtracker:
             if self.options:
                 self.stack.append(current_cell)
                 # remove the wall between the current cell and the chosen cell
-                self.grid[current_cell[0]][current_cell[1]] = 0
-                self.grid[next_cell[1][0]][next_cell[1][1]] = 0
-                self.grid[next_cell[0][0]][next_cell[0][1]] = 0
+                self.grid[current_cell[1]][current_cell[0]] = 0
+                self.grid[next_cell[1][1]][next_cell[1][0]] = 0
+                self.grid[next_cell[0][1]][next_cell[0][0]] = 0
 
                 if self.visualize:
                     self.maze.maze.after(self.sleep, self.maze.draw_passage(
-                        current_cell[0], current_cell[1]))
-                    self.maze.draw_passage(next_cell[1][0], next_cell[1][1])
-                    self.maze.draw_passage(next_cell[0][0], next_cell[0][1])
+                        current_cell[1], current_cell[0]))
+                    self.maze.draw_passage(next_cell[1][1], next_cell[1][0])
+                    self.maze.draw_passage(next_cell[0][1], next_cell[0][0])
                     self.maze.maze.update()
 
                 self.visited.add(next_cell[0])
@@ -59,5 +59,8 @@ class Backtracker:
             self.options.append(((Y, X + 2), (Y, X + 1)))
 
         if self.options:
+            # print("")
+            #print("current moves:")
+            # print(self.options)
             return choice(self.options)
         return None

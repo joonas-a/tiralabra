@@ -51,7 +51,6 @@ class Logic:
         return False
 
     def kruskals(self, maze, visualize):
-        self.runtime = 0
         start = time.time()
         self.generate_empty_maze()
         maze.draw_maze(self.maze_layout)
@@ -63,7 +62,6 @@ class Logic:
         self.runtime = end - start
 
     def backtracker(self, maze, visualize):
-        self.runtime = 0
         start = time.time()
         self.generate_empty_maze()
         maze.draw_maze(self.maze_layout)
