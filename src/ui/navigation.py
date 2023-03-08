@@ -1,4 +1,4 @@
-from tkinter import IntVar
+from tkinter import IntVar, messagebox
 from tkinter import ttk as tk
 
 
@@ -72,7 +72,10 @@ class Navigation:
         # input validation is handled in the logic class
         width = self.width_input.get()
         height = self.height_input.get()
-        self.logic.change_maze_size(width, height, self.maze)
+        if not self.logic.change_maze_size(width, height, self.maze):
+            print("fail")
+            messagebox.showinfo(
+                title="Warning", message=f"Max height: {self.logic.max_height}, Max width: {self.logic.max_width}")
 
     def run_kruskals(self):
         self.logic.kruskals(self.maze, self.visualize_var.get())

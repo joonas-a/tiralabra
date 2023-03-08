@@ -15,9 +15,9 @@ class Logic:
         self.width = 41
         self.height = 41
         self.maze_layout = None
-        self.sleep_timer = 20
+        self.sleep_timer = 10
         self.runtime = 0
-        self.max_width = 50
+        self.max_width = 70
         self.max_height = 50
 
         self.generate_empty_maze()
@@ -47,6 +47,8 @@ class Logic:
             self.height = int(new_height) + int(new_height) - 1
             self.generate_empty_maze()
             maze.update_size()
+            return True
+        return False
 
     def kruskals(self, maze, visualize):
         self.runtime = 0

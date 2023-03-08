@@ -20,16 +20,18 @@ class Maze:
         self.layout = self.logic.maze_layout
 
         self.canvas_frame = tkinter.Frame(
-            self.master, relief="groove", bg="grey")
+            self.master, relief="groove", bg="black")
         self.canvas_frame.grid(row=0, column=1)
 
         self.maze = tkinter.Canvas(
             self.canvas_frame,
             bg='black',
+            highlightthickness=1,
+            highlightbackground='black',
             height=self.logic.get_height(),
             width=self.logic.get_width()
         )
-        self.maze.grid(row=0, column=0, padx=5, pady=5)
+        self.maze.grid(row=0, column=0, padx=3, pady=3)
         self.draw_maze(self.logic.maze_layout)
 
     def draw_maze(self, layout):
