@@ -57,7 +57,6 @@ class Navigation:
 
         title_tabel.grid(row=0, column=0, columnspan=2, pady=5, padx=4)
         size_label.grid(row=2, column=0, columnspan=2, sticky="W", padx=4)
-        # input needs to be validated for integer only
         height_label.grid(row=3, column=0, pady=3, padx=4, sticky="W")
         self.height_input.grid(row=3, column=0, pady=3, sticky="E")
         width_label.grid(row=4, column=0, pady=3, padx=4, sticky="W")
@@ -67,9 +66,10 @@ class Navigation:
         algo2.grid(row=7, column=0, pady=5)
         visualize_button.grid(row=8, column=0)
         runtime_label.grid(row=9, column=0)
-        self.runtime.grid(row=9, column=1)
+        self.runtime.grid(row=10, column=0)
 
     def set_size(self):
+        # input validation is handled in the logic class
         width = self.width_input.get()
         height = self.height_input.get()
         self.logic.change_maze_size(width, height, self.maze)

@@ -13,10 +13,11 @@ class Kruskals:
         visualize: a boolean value, whether to visualize maze creation or not
     """
 
-    def __init__(self, layout, maze, visualize):
+    def __init__(self, layout, maze, visualize, sleep_timer):
         self.grid = layout
         self.maze = maze
         self.visualize = visualize
+        self.sleep = sleep_timer
         self.height = len(self.grid)
         self.width = len(self.grid[0])
         self.sets = DisjointSet()
@@ -68,7 +69,8 @@ class Kruskals:
                 self.grid[row_a][col_a] = 0
                 self.grid[row_b][col_b] = 0
                 if self.visualize:
-                    self.maze.maze.after(30, self.maze.draw_passage(row, col))
+                    self.maze.maze.after(
+                        self.sleep, self.maze.draw_passage(row, col))
                     self.maze.draw_passage(row_a, col_a)
                     self.maze.draw_passage(row_b, col_b)
                     self.maze.maze.update()

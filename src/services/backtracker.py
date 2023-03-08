@@ -2,10 +2,11 @@ from random import choice
 
 
 class Backtracker:
-    def __init__(self, layout, maze, visualize):
+    def __init__(self, layout, maze, visualize, sleep_timer):
         self.grid = layout
         self.maze = maze
         self.visualize = visualize
+        self.sleep = sleep_timer
         self.height = len(self.grid)
         self.width = len(self.grid[0])
         self.visited = set()
@@ -25,7 +26,7 @@ class Backtracker:
                 self.grid[next_cell[0][0]][next_cell[0][1]] = 0
 
                 if self.visualize:
-                    self.maze.maze.after(30, self.maze.draw_passage(
+                    self.maze.maze.after(self.sleep, self.maze.draw_passage(
                         current_cell[0], current_cell[1]))
                     self.maze.draw_passage(next_cell[1][0], next_cell[1][1])
                     self.maze.draw_passage(next_cell[0][0], next_cell[0][1])
