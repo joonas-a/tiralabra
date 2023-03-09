@@ -25,15 +25,15 @@ class TestMazeGeneration(unittest.TestCase):
     def test_no_unvisited_cells_after_kruskal(self):
         self.find = any(2 in row for row in self.logic.maze_layout)
         self.assertEqual(self.find, True)
-        self.logic.kruskals(self.mock_maze)
+        self.logic.kruskals(self.mock_maze, False)
         self.find = any(2 in row for row in self.logic.maze_layout)
         self.assertEqual(self.find, False)
 
     def test_maze_dimension_change(self):
-        width = 50
-        height = 23
-        new_width = (width * 2 - 1) * self.logic.cell_size
-        new_height = (height * 2 - 1) * self.logic.cell_size
+        width = "50"
+        height = "23"
+        new_width = (int(width) * 2 - 1) * self.logic.cell_size
+        new_height = (int(height) * 2 - 1) * self.logic.cell_size
         self.logic.change_maze_size(width, height, self.mock_maze)
         self.assertEqual(self.logic.get_height(), new_height)
         self.assertEqual(self.logic.get_width(), new_width)

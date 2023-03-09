@@ -12,13 +12,14 @@ class Logic:
 
     def __init__(self):
         self.cell_size = 10
+        self.max_width = 70
+        self.max_height = 45
+
         self.width = 41
         self.height = 41
         self.maze_layout = None
         self.sleep_timer = 10
         self.runtime = 0
-        self.max_width = 70
-        self.max_height = 50
 
         self.generate_empty_maze()
 
