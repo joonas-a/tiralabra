@@ -29,6 +29,13 @@ class TestMazeGeneration(unittest.TestCase):
         self.find = any(2 in row for row in self.logic.maze_layout)
         self.assertEqual(self.find, False)
 
+    def test_no_univisited_cells_after_backtracker(self):
+        self.find = any(2 in row for row in self.logic.maze_layout)
+        self.assertEqual(self.find, True)
+        self.logic.backtracker(self.mock_maze, False)
+        self.find = any(2 in row for row in self.logic.maze_layout)
+        self.assertEqual(self.find, False)
+
     def test_maze_dimension_change(self):
         width = "50"
         height = "23"
