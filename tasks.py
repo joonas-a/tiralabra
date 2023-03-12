@@ -7,6 +7,11 @@ def start(ctx):
 
 
 @task
+def performance(ctx):
+    ctx.run("python3 src/performance_test.py", pty=True)
+
+
+@task
 def lint(ctx):
     ctx.run("pylint src", pty=True)
 

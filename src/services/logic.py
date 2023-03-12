@@ -1,6 +1,6 @@
 import time
 from .kruskal import Kruskals
-from . backtracker import Backtracker
+from .backtracker import Backtracker
 
 
 class Logic:
@@ -37,7 +37,7 @@ class Logic:
 
     def generate_empty_maze(self):
         # Generates the matrix for displaying the maze
-        # 0 for path, 1 for solid wall, 2 for unvisited cell
+        # 0 for path, 1 for wall, 2 for unvisited cell
         # 1 & 2 are by default drawn black in the maze
         self.maze_layout = [
             [1 if i % 2 == 1 or j % 2 == 1 else 2 for j in range(self.width)] for i in range(self.height)]
@@ -51,6 +51,8 @@ class Logic:
             return True
         return False
 
+    # Runtime is not going to track time spent drawing the finished maze, only the generation
+
     def kruskals(self, maze, visualize):
         start = time.time()
         self.generate_empty_maze()
@@ -58,8 +60,8 @@ class Logic:
         kruskals = Kruskals(self.maze_layout, maze,
                             visualize, self.sleep_timer)
         self.maze_layout = kruskals.run()
-        maze.draw_maze(self.maze_layout)
         end = time.time()
+        maze.draw_maze(self.maze_layout)
         self.runtime = end - start
 
     def backtracker(self, maze, visualize):
@@ -69,6 +71,6 @@ class Logic:
         backtracker = Backtracker(
             self.maze_layout, maze, visualize, self.sleep_timer)
         self.maze_layout = backtracker.run()
-        maze.draw_maze(self.maze_layout)
         end = time.time()
+        maze.draw_maze(self.maze_layout)
         self.runtime = end - start

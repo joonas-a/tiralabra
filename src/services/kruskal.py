@@ -28,10 +28,7 @@ class Kruskals:
     def populate_walls(self):
         # Create the list of all walls in any given layout, ignoring
         # those that are aligned diagonally
-        # for example the x in the 2x2 maze/graph below
-        # 0 W 0
-        # W x W
-        # 0 W 0
+        # The walls are also nodes in the graph for visualization purposes
         for row_count, row in enumerate(self.grid):
             for col_count, cell in enumerate(row):
                 if cell == 1 and not (row_count % 2 == 1 and col_count % 2 == 1):
@@ -45,9 +42,6 @@ class Kruskals:
             self.walls.append((col, row, "vertical"))
         elif row == 0 or row == (self.height - 1) or row % 2 == 0:
             self.walls.append((col, row, "horizontal"))
-        else:
-            # print("something went wrong adding walls to the list")
-            pass
 
     def run(self):
         while self.walls:
