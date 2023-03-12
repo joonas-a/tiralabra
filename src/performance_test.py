@@ -1,4 +1,3 @@
-import time
 from services.logic import Logic
 
 
@@ -7,11 +6,13 @@ class PerformanceTester:
         Simple CLI which asks for parameters before returning the results
 
         Contains no input validation/limitations; simulating with large parameters will take
-        a long time
+        a _very_ long time.
     """
 
     def __init__(self):
         self.logic = Logic()
+        self.logic.max_height = 999999999999999
+        self.logic.max_width = 999999999999999
         self.maze = MazeMock()
 
     def main_loop(self):
@@ -39,17 +40,13 @@ class PerformanceTester:
 
         # Simulate kruskals
         for _ in range(int(number)):
-            start = time.time()
             self.logic.kruskals(self.maze, False)
-            end = time.time()
-            kruskal_runtimes.append(end-start)
+            kruskal_runtimes.append(self.logic.runtime)
 
         # Simulate backtracker
         for _ in range(int(number)):
-            start = time.time()
             self.logic.backtracker(self.maze, False)
-            end = time.time()
-            backtracker_runtimes.append(end-start)
+            backtracker_runtimes.append(self.logic.runtime)
 
         self.show_results(kruskal_runtimes, backtracker_runtimes)
 
