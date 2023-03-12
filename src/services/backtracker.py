@@ -34,9 +34,9 @@ class Backtracker:
             current_cell = self.stack.pop()
             next_cell = self.find_options(current_cell)
 
-            if self.options:
+            if next_cell:
                 self.stack.append(current_cell)
-                # remove the wall between the current cell and the chosen cell
+                # remove the wall between the current cell and the next cell
                 self.grid[current_cell[1]][current_cell[0]] = 0
                 self.grid[next_cell[1][1]][next_cell[1][0]] = 0
                 self.grid[next_cell[0][1]][next_cell[0][0]] = 0
@@ -75,8 +75,5 @@ class Backtracker:
             self.options.append(((Y, X + 2), (Y, X + 1)))
 
         if self.options:
-            # print("")
-            #print("current moves:")
-            # print(self.options)
             return choice(self.options)
         return None
