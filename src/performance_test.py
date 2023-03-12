@@ -54,7 +54,7 @@ class PerformanceTester:
         avg_kruskal = sum(kruskal) / len(kruskal)
         avg_backtracker = sum(backtracker) / len(backtracker)
         difference = abs(avg_kruskal-avg_backtracker)
-        percentage = difference / ((avg_kruskal + avg_backtracker) / 2) * 100
+        percentage = (difference / max(avg_backtracker, avg_kruskal)) * 100
         faster = None
         if avg_kruskal < avg_backtracker:
             faster = "kruskals algorithm"
